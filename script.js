@@ -16,10 +16,10 @@ function selectOption(dimension, value) {
         btn.classList.toggle('selected', btnValue === value);
     });
     
-    // Check for SPIKE immediately when Knowledge is unclear
-    if (dimension === 'knowledge' && value === 3) {
-        document.querySelector('.result-label').textContent = 'SPIKE NEEDED';
-        document.querySelector('.result-value').textContent = '';
+    // S'il y a une sélection de "Unclear" sur knowledge, on affiche SPIKE
+    if (selections.knowledge === 3 || (dimension === 'knowledge' && value === 3)) {
+        document.querySelector('.result-label').textContent = '';
+        document.querySelector('.result-value').innerHTML = 'SPIKE<br>NEEDED';
         document.getElementById('result').classList.add('spike');
         return;
     }
@@ -41,9 +41,10 @@ function calculatePoints() {
         return;
     }
 
+    // On s'assure de vérifier si knowledge est "Unclear"
     if (selections.knowledge === 3) {
-        document.querySelector('.result-label').textContent = 'SPIKE NEEDED';
-        document.querySelector('.result-value').textContent = '';
+        document.querySelector('.result-label').textContent = '';
+        document.querySelector('.result-value').innerHTML = 'SPIKE<br>NEEDED';
         document.getElementById('result').classList.add('spike');
         return;
     }
