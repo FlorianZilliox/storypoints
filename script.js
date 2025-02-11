@@ -16,8 +16,8 @@ function selectOption(dimension, value) {
         btn.classList.toggle('selected', btnValue === value);
     });
     
-    // Check for SPIKE immediately when Knowledge is selected
-    if (dimension === 'knowledge' && value === 4) {
+    // Check for SPIKE immediately when Knowledge is unclear
+    if (dimension === 'knowledge' && value === 3) {
         document.querySelector('.result-label').textContent = 'SPIKE NEEDED';
         document.querySelector('.result-value').textContent = '';
         document.getElementById('result').classList.add('spike');
@@ -41,7 +41,7 @@ function calculatePoints() {
         return;
     }
 
-    if (selections.knowledge === 4) {
+    if (selections.knowledge === 3) {
         document.querySelector('.result-label').textContent = 'SPIKE NEEDED';
         document.querySelector('.result-value').textContent = '';
         document.getElementById('result').classList.add('spike');
@@ -52,7 +52,6 @@ function calculatePoints() {
     let multiplier = 1;
     
     // Knowledge impact
-    if (selections.knowledge === 3) multiplier += 1.2;      // Unclear
     if (selections.knowledge === 2) multiplier += 0.6;      // Partly Clear
     if (selections.knowledge === 1) multiplier += 0;        // Very Clear
     
@@ -71,7 +70,7 @@ function calculatePoints() {
     // Special rules for small tasks with unfavorable factors
     if (baseScore <= 2) {
         let badFactors = 0;
-        if (selections.knowledge === 3) badFactors++;
+        if (selections.knowledge === 2) badFactors++;       // Partly Clear compte comme facteur défavorable pour les petites tâches
         if (selections.dependencies === 3) badFactors++;
         if (selections.risk === 3) badFactors++;
         
