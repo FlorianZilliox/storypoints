@@ -167,4 +167,9 @@ button:hover::after {
     #result.spike .result-value {
         font-size: 3rem;
     }
+
+    /* Désactive les tooltips sur mobile */
+    button:hover::after {
+        display: none;
+    }
 }
