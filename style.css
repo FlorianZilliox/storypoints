@@ -134,8 +134,14 @@ button:hover::after {
     line-height: 1;
 }
 
-#result.spike {
+.result-value br {
+    margin-bottom: -1rem;
+}
+
+#result.spike .result-value {
+    font-size: 4rem;
     color: var(--danger);
+    line-height: 1.1;
 }
 
 @media (max-width: 900px) {
@@ -156,5 +162,9 @@ button:hover::after {
 
     .result-value {
         font-size: 6rem;
+    }
+
+    #result.spike .result-value {
+        font-size: 3rem;
     }
 }
