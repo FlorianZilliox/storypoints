@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Story Points Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-container">
+        <div class="questions-container">
+            <div class="dimension">
+                <h3>1. SCOPE CLARITY</h3>
+                <p>How clear are we on what needs to be done?<br>
+                <span class="hint">(Technical solution and business needs)</span></p>
+                <div class="buttons" id="knowledge">
+                    <button onclick="selectOption('knowledge', 1)" title="We know exactly what to do">Very Clear</button>
+                    <button onclick="selectOption('knowledge', 2)" title="Some open questions">Partly Clear</button>
+                    <button onclick="selectOption('knowledge', 3)" title="Many unknowns">Unclear</button>
+                    <button onclick="selectOption('knowledge', 4)" title="Need research">No Idea</button>
+                </div>
+            </div>
+
+            <div class="dimension">
+                <h3>2. DEPENDENCIES</h3>
+                <p>How many external teams or systems are involved?<br>
+                <span class="hint">(Need for input/approval from others)</span></p>
+                <div class="buttons" id="dependencies">
+                    <button onclick="selectOption('dependencies', 1)" title="No external dependencies">None</button>
+                    <button onclick="selectOption('dependencies', 2)" title="Some coordination needed">Few</button>
+                    <button onclick="selectOption('dependencies', 3)" title="Complex coordination required">Many</button>
+                </div>
+            </div>
+
+            <div class="dimension">
+                <h3>3. RISK</h3>
+                <p>How many test scenarios needed?<br>
+                <span class="hint">(Edge cases, error paths, complex validations)</span></p>
+                <div class="buttons" id="risk">
+                    <button onclick="selectOption('risk', 1)" title="Simple testing required">Low</button>
+                    <button onclick="selectOption('risk', 2)" title="Multiple test cases needed">Medium</button>
+                    <button onclick="selectOption('risk', 3)" title="Extensive testing required">High</button>
+                </div>
+            </div>
+
+            <div class="dimension">
+                <h3>4. DURATION</h3>
+                <p>What is the expected development effort?<br>
+                <span class="hint">(Pure coding time, without meetings/reviews)</span></p>
+                <div class="buttons" id="duration">
+                    <button onclick="selectOption('duration', 1)" title="Quick task">< 1 day</button>
+                    <button onclick="selectOption('duration', 2)" title="Small task">1-2 days</button>
+                    <button onclick="selectOption('duration', 3)" title="Medium task">3-4 days</button>
+                    <button onclick="selectOption('duration', 5)" title="Large task">5-7 days</button>
+                    <button onclick="selectOption('duration', 8)" title="Very large task">8-10 days</button>
+                    <button onclick="selectOption('duration', 13)" title="Should be split into smaller stories">10+ days (split)</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="result">
+            <div class="result-label">Story Points</div>
+            <div class="result-value">--</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
